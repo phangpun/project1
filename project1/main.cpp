@@ -37,27 +37,31 @@ int main()
 		
 		// ******Modify here****** 
 		//You need to handle wrong argument format
-		std::cin >> isgrad; 
-		if (isgrad == 1){
-		  std::cout << "\nFormat: [name stunum labname]" << std::endl;
-		  
-		  // ******Modify here****** 
-		  //You need to handle wrong argument format
-		  std::cin >> name >> stunum >> labname;
-		  myman.add_student(name, stunum, labname);		  
-		}
 
-		else if (isgrad == 0){
-		  std::cout << "\nFormat: [name stunum freshmenclass] " << std::endl;
+		for (;;) {
+		  std::cin >> isgrad;
+		  if (isgrad == 1){
+		    std::cout << "\nFormat: [name stunum labname]" << std::endl;
 		  
-		  // ******Modify here****** 
-		  //You need to handle wrong argument format
-		  std::cin >> name >> stunum >> freshmenclass;
-		  myman.add_student(name, stunum, freshmenclass);		  
-		}
-		else{
-		  std::cout << "(Error : You type the wrong number)" << std::endl;
-		  std::cout << "Type\nUndergraduate:0 Graduat:1" << std::endl;
+		    // ******Modify here****** 
+		    //You need to handle wrong argument format
+		    std::cin >> name >> stunum >> labname;
+		    myman.add_student(name, stunum, labname);		  
+		  }
+
+		  else if (isgrad == 0){
+		    std::cout << "\nFormat: [name stunum freshmenclass] " << std::endl;
+		  
+		    // ******Modify here****** 
+		    //You need to handle wrong argument format
+		    std::cin >> name >> stunum >> freshmenclass;
+		    myman.add_student(name, stunum, freshmenclass);		  
+		  }
+		  
+		  else{
+		    std::cout << "\n(Error : You type the wrong number)" << std::endl;
+		    std::cout << "Type\nUndergraduate:0 Graduat:1" << std::endl;
+		  }
 		}
 		
 	  }break;
