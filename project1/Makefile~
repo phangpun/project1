@@ -1,0 +1,12 @@
+program : main.o student.o
+	g++ -o program main.o student.o
+
+main.o : main.cpp
+	g++ -Wall -g -c  main.cpp -o main.o
+
+student.o : student.cpp student.h
+	g++ -Wall -g -c student.cpp student.h -o student.o
+
+
+
+
