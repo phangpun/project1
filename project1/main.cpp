@@ -37,7 +37,7 @@ int main()
 		
 		// ******Modify here****** 
 		//You need to handle wrong argument format
-		std::cin >> isgrad;
+		std::cin >> isgrad; 
 		if (isgrad == 1){
 		  std::cout << "\nFormat: [name stunum labname]" << std::endl;
 		  
@@ -54,6 +54,10 @@ int main()
 		  //You need to handle wrong argument format
 		  std::cin >> name >> stunum >> freshmenclass;
 		  myman.add_student(name, stunum, freshmenclass);		  
+		}
+		else{
+		  std::cout << "(Error : You type the wrong number)" << std::endl;
+		  std::cout << "Type\nUndergraduate:0 Graduat:1" << std::endl;
 		}
 		
 	  }break;
