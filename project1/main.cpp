@@ -38,7 +38,7 @@ int main()
 		// ******Modify here****** 
 		//You need to handle wrong argument format
 
-		for (;;) {
+		while (isLast) {
 		  std::cin >> isgrad;
 		  if (isgrad == 1){
 		    std::cout << "\nFormat: [name stunum labname]" << std::endl;
@@ -63,6 +63,8 @@ int main()
 		    std::cout << "Type\nUndergraduate:0 Graduat:1" << std::endl;
 		  }
 		}
+
+		isLast = true; // initialize pending condition.
 		
 	  }break;
 
@@ -71,21 +73,30 @@ int main()
 		
 		// ******Modify here****** 
 		//You need to handle wrong argument format
-		std::cin >> isgrad;
-		if (isgrad == 1){
-		  std::cout << "\nTarget student\nFormat: [index name stunum labname]" << std::endl;
+		while (isLast){
+		  std::cin >> isgrad;
+		  if (isgrad == 1){
+		    std::cout << "\nTarget student\nFormat: [index name stunum labname]" << std::endl;
 		  
-		  // ******Modify here****** 
-		  //You need to handle wrong argument format
-		  std::cin >> index >> name >> stunum >> labname;
-		  myman.compare_student(index, name, stunum, labname);
+		    // ******Modify here****** 
+		    //You need to handle wrong argument format
+		    std::cin >> index >> name >> stunum >> labname;
+		    myman.compare_student(index, name, stunum, labname);
+		  }
+		  
+		  else if (isgrad == 0){
+		    std::cout << "\nTarget student\nFormat: [index name stunum freshmenclass] " << std::endl;
+		    std::cin >> index >> name >> stunum >> freshmenclass;
+		    myman.compare_student(index, name, stunum, freshmenclass);
+		  }
+
+		  else{
+		    std::cout << "\n(Error : You type the wrong number)" << std::endl;
+		    std::cout << "Type\nUndergraduated:0 Graduated:1" << std::endl;
+		  }
 		}
 
-		else if (isgrad == 0){
-		  std::cout << "\nTarget student\nFormat: [index name stunum freshmenclass] " << std::endl;
-		  std::cin >> index >> name >> stunum >> freshmenclass;
-		  myman.compare_student(index, name, stunum, freshmenclass);
-		}
+		isLast = true; // initialize pending condition.
 	  }break;
 
 	  case 'f':{
@@ -93,24 +104,33 @@ int main()
 		
 		// ******Modify here****** 
 		//You need to handle wrong argument format
-		std::cin >> isgrad;
+		while (isLast){
+		  std::cin >> isgrad;
+		  
+		  if (isgrad == 1){
+		    std::cout << "\nFormat: [name stunum labname]" << std::endl;
+		    
+		    // ******Modify here****** 
+		    //You need to handle wrong argument format
+		    std::cin >> name >> stunum >> labname;
+		    myman.find_student(name, stunum, labname);
+		  }
+		  else if (isgrad == 0){
+		    std::cout << "\nFormat: [name stunum freshmenclass]" << std::endl;
+		    
+		    // ******Modify here****** 
+		    //You need to handle wrong argument format
+		    std::cin >> name >> stunum >> freshmenclass;
+		    myman.find_student(name, stunum, freshmenclass);
+		  }
 
-		if (isgrad == 1){
-		  std::cout << "\nFormat: [name stunum labname]" << std::endl;
-
-		  // ******Modify here****** 
-		  //You need to handle wrong argument format
-		  std::cin >> name >> stunum >> labname;
-		  myman.find_student(name, stunum, labname);
+		  else{
+		    std::cout << "\n(Error : You type the wrong number)" << std::endl;
+		    std::cout << "Type\nUndergraduated:0 Graduated:1" << std::endl;
+		  }
 		}
-		else if (isgrad == 0){
-		  std::cout << "\nFormat: [name stunum freshmenclass]" << std::endl;
 
-		  // ******Modify here****** 
-		  //You need to handle wrong argument format
-		  std::cin >> name >> stunum >> freshmenclass;
-		  myman.find_student(name, stunum, freshmenclass);
-		}
+		isLast = true; //initialize pending condition.
 	  }break;
 
 
